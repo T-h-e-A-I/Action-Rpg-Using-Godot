@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/HeartUI.gd" type="Script" id=1]
+[ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=2]
+[ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=3]
+[ext_resource path="res://World/Bush.png" type="Texture" id=4]
+
+[node name="HeartUI" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 60.0
+margin_bottom = 12.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_right = 59.0
+margin_bottom = 11.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 32.0
+margin_top = 19.0
+margin_right = 95.0
+margin_bottom = 82.0
+texture = ExtResource( 4 )
+stretch_mode = 2
