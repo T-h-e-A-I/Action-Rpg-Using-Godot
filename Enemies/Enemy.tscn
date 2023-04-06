@@ -1,0 +1,269 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://Enemies/Bat.png" type="Texture" id=1]
+[ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=2]
+[ext_resource path="res://Enemies/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Effects/EnemyDeathEffect.png" type="Texture" id=5]
+[ext_resource path="res://Effects/HitEffect.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Overlap/HurtBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/WanderNode.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Music and Sounds/EnemyDie.wav" type="AudioStream" id=10]
+[ext_resource path="res://Music and Sounds/Hit.wav" type="AudioStream" id=11]
+[ext_resource path="res://white_color_shader.tres" type="Shader" id=12]
+
+[sub_resource type="CircleShape2D" id=23]
+radius = 80.016
+
+[sub_resource type="ShaderMaterial" id=25]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/active = false
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 16, 24 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "Animate",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 4.0
+height = 2.0
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 7.0
+height = 0.0
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 5 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 5 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 5 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": false,
+"name": "Animation",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 6 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 20 ), SubResource( 21 ) ],
+"loop": false,
+"name": "Animate",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=24]
+radius = 9.0
+
+[sub_resource type="Animation" id=26]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "Start"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="Stats" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 7 )]
+position = Vector2( -1, -16 )
+scale = Vector2( 0.625, 0.625 )
+collision_layer = 16
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+position = Vector2( 1.6, 25.6 )
+shape = SubResource( 23 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 25 )
+frames = SubResource( 6 )
+animation = "Animate"
+frame = 2
+playing = true
+offset = Vector2( 0, -12 )
+
+[node name="SmallShadow" type="Sprite" parent="AnimatedSprite"]
+position = Vector2( 0, 12 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -3 )
+shape = SubResource( 7 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, -15 )
+shape = SubResource( 8 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -16 )
+frames = SubResource( 19 )
+animation = "Animation"
+frame = 9
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimatedSprite2"]
+stream = ExtResource( 10 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -1, -16 )
+scale = Vector2( 0.625, 0.625 )
+frames = SubResource( 22 )
+animation = "Animate"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimatedSprite3"]
+stream = ExtResource( 11 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 8 )]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 0, -15 )
+shape = SubResource( 24 )
+
+[node name="WanderNode" parent="." instance=ExtResource( 9 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 26 )
+anims/Start = SubResource( 27 )
+anims/Stop = SubResource( 28 )
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2" to="." method="_on_AnimatedSprite2_animation_finished"]
+[connection signal="visibility_changed" from="AnimatedSprite2" to="." method="_on_AnimatedSprite2_visibility_changed"]
+[connection signal="animation_finished" from="AnimatedSprite3" to="." method="_on_AnimatedSprite3_animation_finished"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+
+[editable path="PlayerDetectionZone"]
+[editable path="Hitbox"]
+[editable path="HurtBox"]
